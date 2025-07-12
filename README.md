@@ -185,16 +185,6 @@ npm run preview
 yarn preview
 ```
 
-### Deploy to Vercel
-1. Install Vercel CLI: `npm i -g vercel`
-2. Run: `vercel`
-3. Follow the prompts to deploy
-
-### Deploy to Netlify
-1. Build the project: `npm run build`
-2. Drag the `dist` folder to Netlify
-3. Configure environment variables in Netlify dashboard
-
 ## 🤝 Contributing
 
 We welcome contributions! Please follow these steps:
