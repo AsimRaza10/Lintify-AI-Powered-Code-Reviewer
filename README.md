@@ -39,8 +39,8 @@ A modern, responsive web application that leverages Google's Gemini AI to provid
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/lintify.git
-   cd lintify
+   git clone https://github.com/AsimRaza10/Lintify-AI-Powered-Code-Reviewer.git
+   cd Lintify-AI-Powered-Code-Reviewer
    ```
 
 2. **Install dependencies**
@@ -252,6 +252,6 @@ If you encounter any issues or have questions:
 
 ---
 
-**Made with ❤️ by the Asim Raza**
+**Made with ❤️ by the Lintify Team**
 
-*Empowering developers with AI-powered code analysis and improvement tools.*
+*Empowering developers with AI-powered code analysis and improvement tools.* 
