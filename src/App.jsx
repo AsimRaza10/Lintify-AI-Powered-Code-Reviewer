@@ -151,12 +151,12 @@ const App = () => {
       {/* Navbar upar dikh rahi hai, theme toggle ke sath */}
       <Navbar onToggleTheme={toggleTheme} theme={theme} />
       <div
-        className="main flex flex-col lg:flex-row justify-between"
-        style={{ height: 'calc(100vh - 90px)' }}
+        className="main flex flex-col lg:flex-row justify-between h-full min-h-0 flex-1"
+        style={{ height: 'calc(100vh - 60px)' }}
       >
         {/* Left section: Language select, buttons, aur code editor */}
-        <div className="left h-[50vh] lg:h-[87%] w-full lg:w-[50%]">
-          <div className="tabs !mt-5 !px-5px !mb-3 w-full flex flex-col sm:flex-row items-center bg-zinc-800 gap-2 sm:gap-0">
+        <div className="left flex flex-col w-full lg:w-1/2 min-h-0 h-full">
+          <div className="tabs !mt-5 !px-5px !mb-3 w-full flex flex-col sm:flex-row items-center bg-zinc-800 gap-2 sm:gap-0 flex-shrink-0">
             {/* Language select dropdown */}
             <Select
               value={selectLanguage}
@@ -194,24 +194,34 @@ const App = () => {
             </div>
           </div>
           {/* Code editor (Monaco) */}
-          <Editor
-            height="100%"
-            theme={theme === 'dark' ? 'vs-dark' : 'light'}
-            language={selectLanguage.value}
-            value={code}
-            onChange={(e) => {
-              setCode(e);
-            }}
-          />
+          <div className="flex-1 min-h-0">
+            <Editor
+              height="100%"
+              theme={theme === 'dark' ? 'vs-dark' : 'light'}
+              language={selectLanguage.value}
+              value={code}
+              onChange={(e) => {
+                setCode(e);
+              }}
+              options={{
+                fontSize: 16,
+                minimap: { enabled: false },
+                scrollBeyondLastLine: false,
+                wordWrap: 'on',
+              }}
+            />
+          </div>
         </div>
         {/* Right section: Response panel */}
-        <div className="right overflow-scroll !p-[10px] bg-zinc-900 w-full lg:w-[50%] h-[50vh] lg:h-[87%]">
-          <div className="topTab border-b-[1px] border-t-[1px] border-[#27272a] flex items-center justify-between h-[60px]">
+        <div className="right !p-[10px] bg-zinc-900 w-full lg:w-1/2 flex flex-col min-h-0 h-full">
+          <div className="topTab border-b-[1px] border-t-[1px] border-[#27272a] flex items-center justify-between h-[60px] flex-shrink-0">
             <p className='font-[700] text-[17px]'>Response</p>
           </div>
           {/* Loading spinner ya AI ka jawab dikhana */}
-          {loading && <CircleLoader color='#fb7185'/>}
-          <Markdown >{response}</Markdown>
+          <div className="response-content flex-1 overflow-y-auto">
+            {loading && <CircleLoader color='#fb7185'/>}
+            <Markdown>{response}</Markdown>
+          </div>
         </div>
       </div>
     </div>
